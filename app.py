@@ -123,7 +123,7 @@ if st.button('Analisar', type='primary') and url.strip():
     url = url.strip()
     if not url.lower().startswith(('http://', 'https://')):
         url = 'https://' + url
-        st.info(f'Endereço analisado: {url} (o https:// foi incluído automaticamente).')
+        st.info(f'Endereço analisado: `{url}` (o https:// foi incluído automaticamente).')
     prob, tabela = prever(url)
 
     if prob >= 0.5:
