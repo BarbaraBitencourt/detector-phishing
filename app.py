@@ -120,8 +120,10 @@ st.write('Cole um endereço de site. O modelo analisa **apenas o texto da URL**,
 url = st.text_input('Endereço (URL)', placeholder='https://www.exemplo.com.br')
 
 if st.button('Analisar', type='primary') and url.strip():
+    url = url.strip()
     if not url.lower().startswith(('http://', 'https://')):
-        st.warning('Inclua o início do endereço (http:// ou https://) para a análise ficar correta.')
+        url = 'https://' + url
+        st.info(f'Endereço analisado: {url} (o https:// foi incluído automaticamente).')
     prob, tabela = prever(url)
 
     if prob >= 0.5:
